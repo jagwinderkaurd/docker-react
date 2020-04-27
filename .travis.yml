@@ -1,0 +1,10 @@
+language: generic
+sudo: required
+services: 
+  - docker
+
+before-install:
+  - docker build -t jagwinderkaurd/docker-react -f Deckerfile.dev .
+
+script:
+  - docker run -e CI=true jagwinderkaurd/docker-react npm run test
